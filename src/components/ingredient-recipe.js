@@ -1,7 +1,9 @@
 import react, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Ingredient_Recipe = () => {
+	const History = useHistory();
 	const [ingredient, setIngredient] = useState('');
 	const [meals, setMeals] = useState([]);
 
@@ -19,6 +21,11 @@ const Ingredient_Recipe = () => {
 			console.log(res.data.meals);
 			setMeals(res.data.meals);
 		});
+	};
+
+	const handleClickImg = (e, id) => {
+		e.preventDefault();
+		History.push('/item/' + id);
 	};
 
 	return (
@@ -45,7 +52,10 @@ const Ingredient_Recipe = () => {
 							return (
 								<div id={item.idMeal}>
 									<tr>{item.strMeal}</tr>
-									<img src={item.strMealThumb}></img>
+									<img
+										src={item.strMealThumb}
+										onClick={(e) => handleClickImg(e, item.idMeal)}
+									></img>
 								</div>
 							);
 						})}

@@ -5,6 +5,7 @@ const router = express.Router();
 const port = 3011;
 const recipe_api = require('./util/recipe_api');
 const irecipe_api = require('./util/recipe_ingredient');
+const recipe_view_api = require('./util/recipe_view');
 
 app.use(cors());
 app.use(express.json());
@@ -24,6 +25,16 @@ router.route('/find').post(async (req, res) => {
 	console.log(req.body.ingredient);
 	try {
 		let recipe = await irecipe_api(req.body.ingredient);
+		console.log(recipe);
+		res.status(200).json(recipe);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+});
+
+router.route('/recipe/:id').get(async (req, res) => {
+	try {
+		let recipe = await recipe_view_api(req.params.id);
 		console.log(recipe);
 		res.status(200).json(recipe);
 	} catch (err) {
