@@ -30,7 +30,6 @@ const Ingredient_Recipe = () => {
 
 	return (
 		<div>
-			<h1>Recipe Finder</h1>
 			<div>
 				<form>
 					<div>
