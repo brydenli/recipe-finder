@@ -2,12 +2,12 @@
 
 Web application powered by TheMealDB.com.
 
-# Application Features:
+## Application Features:
 
 1. Search for recipes using a key ingredient (e.g. Basil)
 2. Find random recipes
 
-# How to Run
+## How to Run
 
 1. Download the files
 2. Enter the root folder on the command line
