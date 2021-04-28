@@ -1,3 +1,4 @@
+import '../styling/App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Recipe_view from '../components/recipe_view';
 import Home from '../components/home';

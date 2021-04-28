@@ -1,6 +1,7 @@
 import react, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import '../styling/ingredient-recipe.css';
 
 const Ingredient_Recipe = () => {
 	const History = useHistory();
@@ -29,27 +30,25 @@ const Ingredient_Recipe = () => {
 	};
 
 	return (
-		<div>
+		<div className='container'>
 			<div>
 				<form>
-					<div>
+					<div className='searchbar'>
 						<input
 							placeholder='Main Ingredient Name'
 							value={ingredient}
 							onChange={handleIngredient}
 						></input>
-					</div>
-					<div>
-						<button onClick={(e) => handleSubmit(e)}>Click</button>
+						<button onClick={(e) => handleSubmit(e)}>Search</button>
 					</div>
 				</form>
 			</div>
-			<div>
+			<div className='food-list'>
 				<table>
 					<tbody>
 						{meals.map((item) => {
 							return (
-								<div id={item.idMeal}>
+								<div id={item.idMeal} className='food-item'>
 									<tr>{item.strMeal}</tr>
 									<img
 										src={item.strMealThumb}

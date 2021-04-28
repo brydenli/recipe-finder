@@ -1,0 +1,37 @@
+.navbar {
+	background-color: rgb(255, 170, 42);
+	position: flex;
+	top: 0;
+	width: 100%;
+	padding: 0.5%;
+}
+
+.logo {
+	background-color: rgb(255, 170, 42);
+	margin: 1% 0 1% 1%;
+	font-size: 1.8em;
+	font-family: roboto-slab-Med;
+}
+
+.list {
+	background-color: rgb(255, 170, 42);
+	display: flex;
+	align-items: center;
+}
+
+a {
+	background-color: rgb(255, 170, 42);
+	list-style-type: none;
+	text-decoration: none;
+	color: black;
+	margin: 0 2% 0 2%;
+	font-size: 1em;
+}
+
+h3 {
+	background-color: rgb(255, 170, 42);
+	display: flex;
+	font-size: 0.8em;
+	justify-content: flex-end;
+	margin-left: 55%;
+}

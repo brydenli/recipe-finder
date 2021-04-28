@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom';
+import '../styling/navbar.css';
 
 const Navbar = () => {
 	return (
-		<div>
-			<h1>Recipe Finder</h1>
-			<ul>
-				<li>
-					<Link to='/'>Home</Link>
-				</li>
-				<li>
-					<Link to='/recipes'>Search Recipe by Ingredient</Link>
-				</li>
-				<li>
-					<Link to='/random'>Find a Random Recipe</Link>
-				</li>
-			</ul>
+		<div className='navbar'>
+			<div className='list'>
+				<a href='/' className='logo'>
+					Recipe Finder
+				</a>
+				<Link to='/recipes' classname='list-item'>
+					Search by Ingredient
+				</Link>
+				<Link to='/random' classname='list-item'>
+					Find Random Recipe
+				</Link>
+				<h3>Powered by TheMealDB.com</h3>
+			</div>
+			<div></div>
 		</div>
 	);
 };

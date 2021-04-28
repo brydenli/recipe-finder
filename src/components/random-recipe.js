@@ -1,5 +1,6 @@
 import react, { useState, useEffect, useLayoutEffect } from 'react';
 import axios from 'axios';
+import '../styling/random-recipe.css';
 
 const Random_Recipe = () => {
 	const [mealID, setMealID] = useState(0);
@@ -16,9 +17,9 @@ const Random_Recipe = () => {
 		handleRandom();
 	}, []);
 
-	const handleRandom = () => {
+	const handleRandom = async () => {
 		let response = {};
-		axios
+		await axios
 			.get('http://localhost:3011/v1/random')
 			.then((res) => {
 				response = res.data[0];
@@ -75,7 +76,7 @@ const Random_Recipe = () => {
 				]);
 			})
 			.then(async () => {
-				const instruction_split = instructions.split('. ');
+				const instruction_split = await instructions.split('. ');
 				await setInstructionList(instruction_split);
 				console.log(instructionList);
 			});
@@ -83,16 +84,17 @@ const Random_Recipe = () => {
 
 	return (
 		<div>
-			<button onClick={handleRandom}>Click</button>
-
-			<div>
-				<h2>Meal Name: {mealName}</h2>
-				<h3>Category: {category}</h3>
-				<h3>Region: {region}</h3>
+			<div className='container'>
 				<div>
+					<h2 className='mealName'>{mealName}</h2>
+				</div>
+
+				<div className='subcontainer-1'>
 					<img src={imgsrc} alt='food image'></img>
 				</div>
-				<div>
+				<button onClick={handleRandom}>New Recipe</button>
+
+				<div className='subcontainer-2'>
 					<table>
 						<thead>
 							<th>Ingredient</th>
@@ -109,23 +111,23 @@ const Random_Recipe = () => {
 							})}
 						</tbody>
 					</table>
+					<table>
+						<thead>
+							<th>Step</th>
+							<th>Instructions</th>
+						</thead>
+						<tbody>
+							{instructionList.map((item) => {
+								return (
+									<tr>
+										<td>{instructionList.indexOf(item) + 1}</td>
+										<td>{item}</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
 				</div>
-				<table>
-					<thead>
-						<th>Step</th>
-						<th>Instruction</th>
-					</thead>
-					<tbody>
-						{instructionList.map((item) => {
-							return (
-								<tr>
-									<td>{instructionList.indexOf(item) + 1}</td>
-									<td>{item}</td>
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
 			</div>
 		</div>
 	);

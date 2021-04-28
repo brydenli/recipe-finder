@@ -1,0 +1,19 @@
+@font-face {
+	font-family: roboto-slab-Reg;
+	src: url(../fonts/RobotoSlab-Regular.ttf);
+}
+
+@font-face {
+	font-family: roboto-slab-Bold;
+	src: url(../fonts/RobotoSlab-Bold.ttf);
+}
+
+@font-face {
+	font-family: roboto-slab-Med;
+	src: url(../fonts/RobotoSlab-Medium.ttf);
+}
+
+* {
+	font-family: roboto-slab-Reg;
+	background-color: rgb(255, 244, 235);
+}
